@@ -1,6 +1,7 @@
 FROM node:16-alpine
-RUN npm install
 WORKDIR /app
-COPY ./*.js /app
+COPY package*.json /app
 COPY ./node_modules /app
-RUN npm start
+RUN npm install
+COPY ./*.js /app
+CMD npm start
